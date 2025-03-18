@@ -104,7 +104,7 @@ export const dynamic = "force-dynamic";
 export default async function ProductPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const data: fullProduct = await getData(slug);
