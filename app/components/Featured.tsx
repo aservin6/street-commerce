@@ -24,26 +24,26 @@ export default async function Featured() {
     <div className="px-3 lg:px-0">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="text-2xl font-bold tracking-tight text-stone-800">
             Featured
           </h2>
 
           <Link
-            className="text-primary flex items-center gap-x-1 hover:underline"
+            className="flex items-center gap-x-1 text-stone-800 hover:underline"
             href="/all"
           >
             See All
           </Link>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 xl:gap-x-8">
           {data.map((product, index) => (
             <Link href={`/product/${product.slug}`} key={index}>
               <div
                 key={product._id}
                 className="group relative border-2 shadow-[-5px_5px_0px_0px_#292524]"
               >
-                <div className="w-full overflow-hidden border-b-2 bg-gray-200 group-hover:opacity-75 lg:h-80">
+                <div className="w-full overflow-hidden border-b-2 bg-stone-100 group-hover:opacity-75 lg:h-80">
                   <Image
                     src={product.imageUrl}
                     alt="Product image"

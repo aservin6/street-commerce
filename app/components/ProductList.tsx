@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function ProductCard({ productData }: { productData: simplifiedProduct }) {
   return (
-    <li className="border-2 border-stone-800 shadow-[-5px_5px_0px_0px_#292524] hover:bg-stone-200">
+    <li className="border-2 border-stone-800 shadow-[-5px_5px_0px_0px_#292524] hover:bg-stone-200 sm:text-lg">
       <Link href={`/product/${productData.slug}`}>
         <div className="relative h-72 w-full border-b sm:h-96">
           <Image
@@ -18,13 +18,13 @@ function ProductCard({ productData }: { productData: simplifiedProduct }) {
         </div>
         <div className="space-y-3 p-3">
           <div className="flex items-center justify-between">
-            <span className="text-xl font-bold">{productData.name}</span>
+            <span className="font-bold">{productData.name}</span>
             <span className="text-stone-500 italic">
               {productData.categoryName}
             </span>
           </div>
           <div>
-            <span className="text-lg">${productData.price.toFixed(2)}</span>
+            <span className="">${productData.price.toFixed(2)}</span>
           </div>
         </div>
       </Link>

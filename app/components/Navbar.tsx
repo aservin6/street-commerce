@@ -90,12 +90,12 @@ function DesktopNav() {
           <span className="md:text-lg">co.</span>
         </div>
         <li className="decoration-2 underline-offset-4 hover:underline">
-          <Link href="/about" className="p-3">
+          <Link href="#" className="p-3">
             About
           </Link>
         </li>
         <li className="decoration-2 underline-offset-4 hover:underline">
-          <Link href="/contact" className="p-3">
+          <Link href="#" className="p-3">
             Contact
           </Link>
         </li>
@@ -181,14 +181,14 @@ function MobileNav({
           </div>
           <Link
             onClick={closeMobileMenu}
-            href="/about"
+            href="#"
             className="decoration-2 underline-offset-4 hover:underline"
           >
             <li className="border-b border-stone-800 px-4 py-6">About</li>
           </Link>
           <Link
             onClick={closeMobileMenu}
-            href="/contact"
+            href="#"
             className="decoration-2 underline-offset-4 hover:underline"
           >
             <li className="border-b border-stone-800 px-4 py-6">Contact</li>

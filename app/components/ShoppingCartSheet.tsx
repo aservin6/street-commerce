@@ -32,7 +32,7 @@ export default function ShoppingCartModal() {
   return (
     <>
       <div
-        className={`${shouldDisplayCart ? "right-0" : "-right-full"} absolute top-0 z-10 h-full min-h-screen w-full max-w-xs border-l-4 border-stone-800 bg-stone-100 transition-all sm:max-w-md`}
+        className={`fixed top-0 right-0 z-50 h-full min-h-screen w-full max-w-xs border-l-4 border-stone-800 bg-stone-100 transition-all sm:max-w-md ${shouldDisplayCart ? "translate-x-0" : "translate-x-full"} `}
       >
         <div className="flex justify-end">
           <button
@@ -131,7 +131,7 @@ export default function ShoppingCartModal() {
             document.body.classList.remove("overflow-hidden");
           }}
           className="absolute top-0 left-0 h-screen w-screen bg-stone-800 opacity-30"
-        ></div>
+        />
       )}
     </>
   );
