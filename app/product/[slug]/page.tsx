@@ -108,14 +108,18 @@ export default async function ProductPage({
 }) {
   const { slug } = await params;
   const data: fullProduct = await getData(slug);
-  const imageUrl = urlFor(data.images[0]).url();
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row sm:gap-x-8">
-        <ProductImage imageUrl={imageUrl} name={data.name} />
-        <ProductDetails {...data} />
-      </div>
+      {data && (
+        <div className="flex flex-col sm:flex-row sm:gap-x-8">
+          <ProductImage
+            imageUrl={urlFor(data.images[0]).url()}
+            name={data.name}
+          />
+          <ProductDetails {...data} />
+        </div>
+      )}
     </div>
   );
 }
