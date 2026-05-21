@@ -1,4 +1,4 @@
-import { client, urlFor } from "../lib/sanity";
+import { client, optimizedSanityImage } from "../lib/sanity";
 import Image from "next/image";
 
 async function getData() {
@@ -13,13 +13,14 @@ export default async function Hero() {
     <div className="relative bg-stone-800 sm:bg-transparent">
       <div className="relative mx-auto block w-2/3 sm:w-full">
         <Image
-          src={urlFor(data.image1).url()}
+          src={optimizedSanityImage(data.image1, 900, 80)}
           alt="Hero image"
           className="object-contain"
           priority
           width={900}
           height={1600}
-          quality={100}
+          sizes="(max-width: 640px) 67vw, 50vw"
+          quality={80}
         />
       </div>
     </div>

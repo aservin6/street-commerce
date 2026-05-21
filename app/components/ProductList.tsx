@@ -1,6 +1,7 @@
 import { simplifiedProduct } from "../interface";
 import Image from "next/image";
 import Link from "next/link";
+import { optimizeSanityImageUrl } from "../lib/sanity";
 
 function ProductCard({ productData }: { productData: simplifiedProduct }) {
   return (
@@ -8,10 +9,13 @@ function ProductCard({ productData }: { productData: simplifiedProduct }) {
       <Link href={`/product/${productData.slug}`}>
         <div className="relative h-72 w-full border-b sm:h-96">
           <Image
-            src={productData.imageUrl}
+            src={optimizeSanityImageUrl(productData.imageUrl, {
+              width: 700,
+              quality: 75,
+            })}
             alt={productData.name}
             fill={true}
-            sizes={"50%"}
+            sizes="(max-width: 1024px) 50vw, 33vw"
             quality={75}
             className="object-contain"
           />

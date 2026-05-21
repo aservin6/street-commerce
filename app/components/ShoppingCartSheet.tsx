@@ -59,8 +59,8 @@ export default function ShoppingCartModal() {
                           src={entry.image as string}
                           alt="Product image"
                           fill={true}
-                          quality={30}
-                          sizes={"100%"}
+                          quality={60}
+                          sizes="96px"
                           className="object-cover"
                         />
                       </div>

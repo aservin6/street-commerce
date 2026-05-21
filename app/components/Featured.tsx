@@ -2,6 +2,7 @@ import { client } from "../lib/sanity";
 import { simplifiedProduct } from "../interface";
 import Link from "next/link";
 import Image from "next/image";
+import { optimizeSanityImageUrl } from "../lib/sanity";
 
 async function getData() {
   const query = `*[_type == "product"][0...4] | order(_createdAt desc) {
@@ -45,11 +46,16 @@ export default async function Featured() {
               >
                 <div className="w-full overflow-hidden border-b-2 bg-stone-100 group-hover:opacity-75 lg:h-80">
                   <Image
-                    src={product.imageUrl}
-                    alt="Product image"
+                    src={optimizeSanityImageUrl(product.imageUrl, {
+                      width: 500,
+                      quality: 75,
+                    })}
+                    alt={product.name}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                    width={300}
-                    height={300}
+                    width={500}
+                    height={500}
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    quality={75}
                   />
                 </div>
 

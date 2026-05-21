@@ -1,5 +1,5 @@
 import { fullProduct } from "@/app/interface";
-import { client, urlFor } from "@/app/lib/sanity";
+import { client, optimizedSanityImage } from "@/app/lib/sanity";
 import Image from "next/image";
 import { ImStarEmpty, ImTruck } from "react-icons/im";
 import AddToCart from "@/app/components/AddToCart";
@@ -91,7 +91,9 @@ function ProductImage({ name, imageUrl }: { name: string; imageUrl: string }) {
         alt={name}
         width={900}
         height={1600}
-        quality={100}
+        quality={85}
+        sizes="(max-width: 640px) 100vw, 448px"
+        priority
         className="w-full object-contain"
       />
     </div>
@@ -114,7 +116,7 @@ export default async function ProductPage({
       {data && (
         <div className="flex flex-col sm:flex-row sm:gap-x-8">
           <ProductImage
-            imageUrl={urlFor(data.images[0]).url()}
+            imageUrl={optimizedSanityImage(data.images[0], 900, 85)}
             name={data.name}
           />
           <ProductDetails {...data} />

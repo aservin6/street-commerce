@@ -1,7 +1,7 @@
 "use client";
 
 import { useShoppingCart } from "use-shopping-cart";
-import { urlFor } from "../lib/sanity";
+import { optimizedSanityImage } from "../lib/sanity";
 
 export interface ProductCart {
   image: string;
@@ -19,7 +19,7 @@ export default function AddToCart({
 }: ProductCart) {
   const { addItem } = useShoppingCart();
   const product = {
-    image: urlFor(image).url(),
+    image: optimizedSanityImage(image, 300, 60),
     name,
     price,
     currency: "USD",
